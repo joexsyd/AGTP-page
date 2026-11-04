@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08786f">
+  <meta name="description" content="AGTP: Aerially Guided Terrain-Aware Planning for UGV Navigation in Unknown Off-Road Environments. Explore the method, four simulation environments, and real-world validation.">
+  <title>AGTP · Aerially Guided Terrain-Aware Planning</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script src="script.js?v=7" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="wordmark" href="#overview" aria-label="AGTP home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 25 12 10l6 9 5-8 6 14M3 25h26M6 7h7M9.5 3.5v7"/></svg>AGTP</a>
+      <nav aria-label="Main navigation"><a href="#method">Method</a><a href="#simulation">Simulation</a><a href="#real-world">Real world</a><a href="#resources">Resources</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero container" id="overview" aria-labelledby="hero-title">
+      <h1 id="hero-title"><span class="hero-acronym">AGTP</span>Aerially Guided Terrain-Aware Planning<br class="desktop-break"> for UGV Navigation in Unknown<br class="desktop-break"> Off-Road Environments</h1>
+      <p class="hero-description">Aerial terrain guidance. Local ground autonomy.</p>
+      <div class="hero-links" aria-label="Project links">
+        <span class="project-link is-unavailable" aria-disabled="true" title="Paper release planned."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg><strong>Paper</strong><span class="link-status">(coming soon)</span></span>
+        <span class="project-link is-unavailable" aria-disabled="true" title="Simulation testbed and real-world system setup resources; release planned."><svg class="filled-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.64.35-1.08.64-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg><strong>Resources</strong><span class="link-status">(coming soon)</span></span>
+        <span class="project-link is-pending-video" data-video-platform="youtube" title="Video link will be added shortly."><svg class="filled-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5z"/></svg><strong>YouTube</strong></span>
+        <span class="project-link is-pending-video" data-video-platform="bilibili" title="Video link will be added shortly."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 2 3 4m7-4-3 4M5 6h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zM7 11v3m10-3v3m-8 3 3 1 3-1"/></svg><strong>Bilibili</strong></span>
+      </div>
+      <figure class="hero-figure">
+        <div class="video-player hero-player" data-player="hero">
+          <video id="hero-video" data-src="assets/videos/hero.mp4" poster="assets/images/hero-poster.jpg" muted loop playsinline preload="none" aria-label="Aerial view of the UAV–UGV field experiment"></video>
+          <div class="hero-video-label"><span class="live-dot"></span>UAV–UGV field experiment</div>
+          <div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in field experiment video"><span class="speed-label">×3</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div>
+          <p class="video-error" hidden>Video unavailable. Please reload to try again.</p>
+        </div>
+        <figcaption><span>Look ahead from the air. Plan locally on the ground.</span></figcaption>
+      </figure>
+      <figure class="framework-figure"><img src="assets/images/system-framework.png" alt="AGTP system framework: aerial global guidance with terrain mapping and connected-space path search, coupled to ground local mapping, planning and trajectory optimization" width="2664" height="794"></figure>
+    </section>
+
+<section class="section container" id="method" aria-labelledby="method-title">
+ <div class="section-heading"><h2 id="method-title">Global guidance</h2></div>
+ <div class="method-grid"><article class="demo-card"><div class="demo-header"><h3>The planning loop</h3></div><div class="video-player method-player" data-player="overview">
+ <video data-src="assets/videos/overview.mp4" poster="assets/images/overview-poster.jpg" muted loop playsinline preload="none" aria-label="The planning loop"></video>
+ <div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in The planning loop"><span class="speed-label">×1</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div>
+ <p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div><p class="demo-caption">Aerial observations guide the route; onboard sensing determines local feasibility.</p></article><article class="demo-card"><div class="demo-header"><h3>Terrain-aware guidance</h3></div><div class="video-player method-player" data-player="global">
+ <video data-src="assets/videos/global-guidance-v4.mp4" poster="assets/images/global-guidance-v4-poster.jpg" muted loop playsinline preload="none" aria-label="Terrain-aware guidance"></video>
+ <div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in Terrain-aware guidance"><span class="speed-label">×6</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div>
+ <p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div><p class="demo-caption">Aerial terrain costs and the GRP update as observations expand.</p></article><article class="demo-card"><div class="demo-header"><h3>Local adaptation</h3></div><div class="video-player method-player" data-player="local">
+ <video data-src="assets/videos/local-adaptation-v4.mp4" poster="assets/images/local-adaptation-v4-poster.jpg" muted loop playsinline preload="none" aria-label="Local adaptation"></video>
+ <div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in Local adaptation"><span class="speed-label">Speed shown in video</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div>
+ <p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div><p class="demo-caption">Soft guidance allows a local detour when aerial sensing misses terrain details.</p></article></div></section>
+
+<section class="simulation-band" id="simulation" aria-labelledby="simulation-title"><div class="container section">
+ <div class="section-heading"><h2 id="simulation-title">Simulation experiment</h2></div>
+ <div class="scene-grid"><article class="scene-card" id="scene-terrain" aria-labelledby="scene-title-terrain">
+ <div class="scene-card-heading"><h3 id="scene-title-terrain">Terrain</h3><span>Uneven ground</span></div>
+ <div class="scene-media"><figure class="scene-context"><img src="assets/images/terrain.jpg" alt="Terrain simulation environment overview" width="960" height="540" loading="lazy"><figcaption>Simulation environment</figcaption></figure>
+ <div class="video-player scene-player" data-player="terrain">
+ <video data-src="assets/videos/terrain.mp4" poster="assets/images/terrain-poster.jpg" muted loop playsinline preload="none" aria-label="AGTP navigation in Terrain"></video>
+ <div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in AGTP navigation in Terrain"><span class="speed-label">×3</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div>
+ <p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div></div>
+ <p class="scene-caption">Terrain-aware guidance across uneven ground.</p></article><article class="scene-card" id="scene-forest" aria-labelledby="scene-title-forest">
+ <div class="scene-card-heading"><h3 id="scene-title-forest">Forest</h3><span>Dense vegetation</span></div>
+ <div class="scene-media"><figure class="scene-context"><img src="assets/images/forest.jpg" alt="Forest simulation environment overview" width="960" height="540" loading="lazy"><figcaption>Simulation environment</figcaption></figure>
+ <div class="video-player scene-player" data-player="forest">
+ <video data-src="assets/videos/forest.mp4" poster="assets/images/forest-poster.jpg" muted loop playsinline preload="none" aria-label="AGTP navigation in Forest"></video>
+ <div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in AGTP navigation in Forest"><span class="speed-label">×2</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div>
+ <p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div></div>
+ <p class="scene-caption">Navigation through cluttered forest terrain.</p></article><article class="scene-card" id="scene-rubicon" aria-labelledby="scene-title-rubicon">
+ <div class="scene-card-heading"><h3 id="scene-title-rubicon">Boulders</h3><span>Rocky passages</span></div>
+ <div class="scene-media"><figure class="scene-context"><img src="assets/images/rubicon.jpg" alt="Boulders simulation environment overview" width="960" height="540" loading="lazy"><figcaption>Simulation environment</figcaption></figure>
+ <div class="video-player scene-player" data-player="rubicon">
+ <video data-src="assets/videos/rubicon.mp4" poster="assets/images/rubicon-poster.jpg" muted loop playsinline preload="none" aria-label="AGTP navigation in Boulders"></video>
+ <div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in AGTP navigation in Boulders"><span class="speed-label">×4</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div>
+ <p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div></div>
+ <p class="scene-caption">Guided navigation through rocky terrain.</p></article><article class="scene-card" id="scene-cpr" aria-labelledby="scene-title-cpr">
+ <div class="scene-card-heading"><h3 id="scene-title-cpr">Waterside</h3><span>Multi-stage route</span></div>
+ <div class="scene-media"><figure class="scene-context"><img src="assets/images/cpr.jpg" alt="Waterside simulation environment overview" width="960" height="540" loading="lazy"><figcaption>Simulation environment</figcaption></figure>
+ <div class="video-player scene-player" data-player="cpr">
+ <video data-src="assets/videos/cpr-v4.mp4" poster="assets/images/cpr-v4-poster.jpg" muted loop playsinline preload="none" aria-label="AGTP navigation in Waterside"></video>
+ <div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in AGTP navigation in Waterside"><span class="speed-label">×8</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div>
+ <p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div></div>
+ <p class="scene-caption">Aerial–ground navigation across a multi-stage route.</p></article></div><div class="environment-details" aria-labelledby="details-title"><div class="details-heading"><h3 id="details-title">Environment details</h3></div><div class="detail-grid"><figure class="detail-card"><img src="assets/images/detail-cpr-start.jpg" alt="Rocky Waterside approach and bridge, cropped to remove Gazebo interface" width="960" height="600" loading="lazy"><figcaption><h4>Waterside · Rocky approach</h4><p>Scattered rocks near the bridge.</p></figcaption></figure><figure class="detail-card"><img src="assets/images/detail-cpr-roots.jpg" alt="Close-up of roots and a fallen log in the Waterside forest" width="960" height="600" loading="lazy"><figcaption><h4>Waterside · Forest floor</h4><p>Roots, logs and uneven ground.</p></figcaption></figure><figure class="detail-card"><img src="assets/images/detail-cpr-pool.jpg" alt="Simulated pool annotated as a non-traversable drop" width="960" height="600" loading="lazy"><figcaption><h4>Waterside · Simulated pool</h4><p>Entering the pool causes a fall.</p></figcaption></figure><figure class="detail-card detail-gif"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/images/cpr-pool-fall-still.jpg"><img src="assets/images/cpr-pool-fall.gif" alt="UGV-only approaches the pool edge and falls below the surface" width="600" height="374" loading="lazy"></picture><figcaption><h4>UGV-only · Pool entry</h4><p>Approach, entry and fall at native speed.</p></figcaption></figure><figure class="detail-card"><img src="assets/images/detail-rubicon-corner.jpg" alt="Boulders corner with large boulders and a narrow passage" width="960" height="600" loading="lazy"><figcaption><h4>Boulders · Rock corridor</h4><p>Constrained turns between boulders.</p></figcaption></figure><figure class="detail-card"><img src="assets/images/detail-rubicon-forest.jpg" alt="Boulders wooded slope with trees and exposed rock" width="960" height="600" loading="lazy"><figcaption><h4>Boulders · Wooded slope</h4><p>Trees and exposed rock surfaces.</p></figcaption></figure><figure class="detail-card"><img src="assets/images/detail-terrain-mound.jpg" alt="Large convex terrain mound and surrounding slopes" width="960" height="600" loading="lazy"><figcaption><h4>Terrain · Convex mound</h4><p>A large rise with substantial elevation change.</p></figcaption></figure><figure class="detail-card"><img src="assets/images/detail-forest-ground.jpg" alt="Forest detail with trees, rocks and scattered ground obstacles" width="960" height="600" loading="lazy"><figcaption><h4>Forest · Dense vegetation</h4><p>Trees and scattered ground obstacles.</p></figcaption></figure></div></div><p class="release-note"><span class="small-dot"></span>The complete aerial–ground simulation testbed is planned for open-source release.</p></div></section>
+
+    <section class="section container" id="real-world" aria-labelledby="real-title">
+      <div class="section-heading"><h2 id="real-title">Field experiment</h2></div>
+      <div class="platform-strip"><img src="assets/images/platform.jpg" alt="Real UAV and UGV platforms with labeled LiDAR, Intel NUC and radio components" width="1306" height="520" loading="lazy"></div>
+      <div class="real-grid">
+        <article class="demo-card"><div class="demo-header"><h3>Off-road navigation</h3></div><div class="video-player real-player" data-player="real"><video data-src="assets/videos/real-navigation.mp4" poster="assets/images/real-navigation-poster.jpg" muted loop playsinline preload="none" aria-label="AGTP real-world navigation with synchronized terrain map inset"></video><div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in real navigation video"><span class="speed-label">×2</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div><p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div><p class="demo-caption">Aerial guidance and local terrain planning in a cluttered outdoor environment.</p></article>
+        <article class="demo-card"><div class="demo-header"><h3>Reaching an upper-level goal</h3></div><div class="video-player real-player" data-player="levels"><video data-src="assets/videos/upper-level-v4.mp4" poster="assets/images/upper-level-v4-poster.jpg" muted loop playsinline preload="none" aria-label="Latest high-resolution comparison: AGTP reaches the upper level via a ramp while UGV-only becomes blocked at the stairs"></video><div class="player-toolbar"><button class="play-toggle" type="button" aria-label="Play video">Play</button><input class="video-seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek in upper-level comparison"><span class="speed-label">Speed shown in video</span><button class="fullscreen-toggle" type="button" aria-label="View video fullscreen">⛶</button></div><p class="video-error" hidden>Video unavailable. Please reload to try again.</p></div><p class="demo-caption">AGTP takes the connected ramp; UGV-only approaches the stairs and becomes blocked.</p></article>
+      </div>
+    </section>
+
+<section class="resources-section" id="resources" aria-labelledby="resources-title"><div class="container resources-layout">
+ <div class="resource-column"><h2 id="resources-title">Resources</h2><p class="resource-description">We plan to open-source the complete aerial–ground simulation testbed and release the system setup guide for real-world experiments.</p>
+ <div class="resource-list"><div class="resource-item"><h3>Aerial–Ground Simulation Testbed</h3><span class="coming-soon"><i></i>Coming soon</span></div><div class="resource-item"><h3>Real-World System Setup Guide</h3><span class="coming-soon"><i></i>Coming soon</span></div></div>
+ </div>
+ </div></section>
+  </main>
+  <footer class="container site-footer"><a class="wordmark" href="#overview">AGTP</a><p>Aerially Guided Terrain-Aware Planning</p></footer>
+</body>
+</html>
